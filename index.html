@@ -1,70 +1,178 @@
 <!DOCTYPE html>
 <html lang="th">
-  <script>
-  document.addEventListener("scroll", () => {
-    const elements = document.querySelectorAll('.project');
-    elements.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if(rect.top < window.innerHeight - 50) {
-        el.style.opacity = 1;
-        el.style.transform = "translateY(0)";
-      }
-    });
-  });
-</script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sirapat Khongkha</title>
+  <title>Sirapat Khongkha — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Sirapat Khongkha</h1>
-    <img src="Profile.png" alt="รูปของฉัน" class="profile">
-  </header>
-
-  <!-- BIO SECTION -->
-  <section class="content-section">
-    <h2 class="section-title">Bio</h2>
-    <p class="section-text">
-      Hi! I'm Tae, an IBPI student at Yuan Ze University.
-      I specialize in UI/UX and presentation design, focusing on creating clear,
-      user-centered visuals. I enjoy turning ideas into simple, effective designs 
-      and continuously improving my skills.
-    </p>
-  </section>
-
-  <!-- PERSONAL INFORMATION -->
-  <section class="content-section">
-    <h2 class="section-title">Personal Information</h2>
-    <p class="section-text"><b>Name:</b> Sirapat Khongkha</p>
-    <p class="section-text"><b>Age:</b> 19</p>
-    <p class="section-text"><b>Nationality:</b> Thai</p>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="content-section">
-    <h2 class="section-title">Skills</h2>
-    <ul class="skills-list">
-      <li>Creativity</li>
-      <li>UI/UX & Presentation Design</li>
-      <li>English Communication</li>
+  <!-- ============ NAV ============ -->
+  <!-- เมนูลอยด้านบน กดแล้วเลื่อนไปหมวดนั้น (ดูวิธีทำงานใน script.js) -->
+  <nav class="nav" id="nav">
+    <a href="#home" class="nav__logo">SK</a>
+    <button class="nav__toggle" id="navToggle" aria-label="เปิดเมนู" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#home" class="nav__link active" data-nav>Home</a></li>
+      <li><a href="#about" class="nav__link" data-nav>About</a></li>
+      <li><a href="#projects" class="nav__link" data-nav>Projects</a></li>
+      <li><a href="#skills" class="nav__link" data-nav>Skills</a></li>
+      <li><a href="#contact" class="nav__link" data-nav>Contact</a></li>
     </ul>
+  </nav>
+
+  <!-- ============ HOME / HERO ============ -->
+  <section id="home" class="hero">
+    <div class="hero__frame">
+      <img src="profile.jpg" alt="Sirapat Khongkha" class="hero__photo">
+    </div>
+    <div class="hero__text">
+      <p class="eyebrow">Portfolio</p>
+      <h1 class="hero__name">Sirapat<br>Khongkha</h1>
+      <p class="hero__role">IBPI Student — Yuan Ze University</p>
+      <p class="hero__intro">
+        Hi, I'm Tae. I specialize in UI/UX and presentation design,
+        focusing on clear, user-centered visuals — turning ideas into
+        simple, effective designs.
+      </p>
+      <div class="hero__contact">
+        <a href="mailto:2015sirapat@gmail.com" class="pill">Email</a>
+        <a href="https://github.com/username" class="pill" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <a href="#about" class="scroll-cue" aria-label="เลื่อนลงเพื่อดูเพิ่มเติม">
+      <span>Scroll to explore</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6L8 11L13 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </section>
 
-  <div class="center">
-    <a href="work.html" class="btn">View My Works</a>
-  </div>
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="section">
+    <p class="section-eyebrow">01 · About</p>
+    <div class="about__grid">
+      <div class="about__bio">
+        <h2 class="section-title">Bio</h2>
+        <p class="section-text">
+          Hi! I'm Tae, an IBPI student at Yuan Ze University.
+          I specialize in UI/UX and presentation design, focusing on
+          creating clear, user-centered visuals. I enjoy turning ideas
+          into simple, effective designs and continuously improving my
+          skills.
+        </p>
+        <p class="quote">"Small steps build big dreams."</p>
+      </div>
+      <div class="about__info">
+        <h2 class="section-title">Personal Information</h2>
+        <dl class="info-list">
+          <div class="info-row"><dt>Name</dt><dd>Sirapat Khongkha</dd></div>
+          <div class="info-row"><dt>Age</dt><dd>19</dd></div>
+          <div class="info-row"><dt>Nationality</dt><dd>Thai</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <h2>Contact</h2>
-    <p>Email: 2015sirapat@gmail.com</p>
-    <p>Line ID: 0988436981</p>
-    <p>Facebook: Sirapat Khongkha</p>
-    <p>GitHub: <a href="https://github.com/username">github.com/username</a></p>
+  <!-- ============ PROJECTS ============ -->
+  <!-- แก้ไขโปรเจกต์แต่ละอันได้ตรงนี้: เปลี่ยน title / desc / tags / รูป -->
+  <section id="projects" class="section">
+    <p class="section-eyebrow">02 · Projects</p>
+    <h2 class="section-title">My Works</h2>
+    <p class="section-text section-text--lead">ผลงานที่ผ่านมา — กดที่การ์ดเพื่อดูรายละเอียดเพิ่มเติม</p>
+
+    <div class="project-grid">
+
+      <button class="project" data-title="Project 1" data-desc="อธิบายรายละเอียดโปรเจกต์นี้ตรงนี้ — ทำอะไร ใช้เครื่องมืออะไร แก้ปัญหาอะไร" data-tags="UI/UX, Figma">
+        <span class="project__num">01</span>
+        <span class="project__title">Project 1</span>
+        <span class="project__tags">UI/UX · Figma</span>
+      </button>
+
+      <button class="project" data-title="Project 2" data-desc="อธิบายรายละเอียดโปรเจกต์นี้ตรงนี้ — ทำอะไร ใช้เครื่องมืออะไร แก้ปัญหาอะไร" data-tags="Presentation Design">
+        <span class="project__num">02</span>
+        <span class="project__title">Project 2</span>
+        <span class="project__tags">Presentation Design</span>
+      </button>
+
+      <button class="project" data-title="Project 3" data-desc="อธิบายรายละเอียดโปรเจกต์นี้ตรงนี้ — ทำอะไร ใช้เครื่องมืออะไร แก้ปัญหาอะไร" data-tags="Branding">
+        <span class="project__num">03</span>
+        <span class="project__title">Project 3</span>
+        <span class="project__tags">Branding</span>
+      </button>
+
+      <button class="project" data-title="Project 4" data-desc="อธิบายรายละเอียดโปรเจกต์นี้ตรงนี้ — ทำอะไร ใช้เครื่องมืออะไร แก้ปัญหาอะไร" data-tags="Web Design">
+        <span class="project__num">04</span>
+        <span class="project__title">Project 4</span>
+        <span class="project__tags">Web Design</span>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="section">
+    <p class="section-eyebrow">03 · Skills</p>
+    <h2 class="section-title">What I Do</h2>
+
+    <div class="skills-grid">
+      <div class="skills-group">
+        <h3>Design</h3>
+        <div class="tags">
+          <span class="tag">Creativity</span>
+          <span class="tag">UI/UX Design</span>
+          <span class="tag">Presentation Design</span>
+        </div>
+      </div>
+      <div class="skills-group">
+        <h3>Communication</h3>
+        <div class="tags">
+          <span class="tag">English Communication</span>
+          <span class="tag">Teamwork</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <footer id="contact" class="footer">
+    <p class="section-eyebrow">04 · Contact</p>
+    <h2 class="footer__title">Let's talk</h2>
+    <div class="contact-grid">
+      <a href="mailto:2015sirapat@gmail.com" class="contact-item">
+        <span class="contact-label">Email</span>
+        <span class="contact-value">2015sirapat@gmail.com</span>
+      </a>
+      <div class="contact-item">
+        <span class="contact-label">Line ID</span>
+        <span class="contact-value">0988436981</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Facebook</span>
+        <span class="contact-value">Sirapat Khongkha</span>
+      </div>
+      <a href="https://github.com/username" class="contact-item" target="_blank" rel="noopener">
+        <span class="contact-label">GitHub</span>
+        <span class="contact-value">github.com/username</span>
+      </a>
+    </div>
+    <p class="footer__bottom">© 2026 Sirapat Khongkha</p>
   </footer>
 
+  <!-- ============ PROJECT MODAL ============ -->
+  <div class="modal" id="modal">
+    <div class="modal__box">
+      <button class="modal__close" id="modalClose" aria-label="ปิด">✕</button>
+      <p class="modal__tags" id="modalTags"></p>
+      <h3 class="modal__title" id="modalTitle"></h3>
+      <p class="modal__desc" id="modalDesc"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
